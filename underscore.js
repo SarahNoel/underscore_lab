@@ -93,51 +93,60 @@
 //
 // // 7. shuffle - Returns a shuffled copy of the list, using a version of the Fisher-Yates shuffle.  Don't worry about implementing that exact shuffle alogrithm.  Start by creating your own simple shuffle.
 //
-//
-//   var numbers = [1, 2, 3, 4, 5, 0, 10, 500]
-//   var test = [99, 43, 53, 23, 6, 7, 234, 5]
-//
-//   function shuffle(arr){
-//   // create new array
-//       var newArray = [];
-//     // pick random index
-//     arrLength = arr.length;
-//           for (var i = 0; i < arrLength; i++) {
-//             var num = Math.floor(Math.random() * arr.length)
-//             newArray.push(arr.splice(num,1).toString());
-//
-// }
-//         return newArray
-//
-//     }
-//
-//     console.log(shuffle(numbers));
-//     console.log(shuffle(test));
 
-//
-// //   8. sample - Produce a random sample from the list. Pass a number to return n random elements from the list. Otherwise a single random item will be returned.
+  var numbers = [1, 2, 3, 4, 5, 0, 10, 500];
+  var test = [99, 43, 53, 23, 6, 7, 234, 5];
 
-var numbers = [1, 2, 3, 4, 5, 0, 10, 500]
-var test = [99, 43, 53, 23, 6, 7, 234, 5]
+  function shuffle(arr){
+  // create new array
+      var newArray = [];
+      var workA = arr.slice(0);
+      arrLength = workA.length;
+          for (var i = 0; i < arrLength; i++) {
+            var num = Math.floor(Math.random() * workA.length);
+            newArray.push(workA.splice(num,1)[0]);
 
-function sample(arr, n){
-    var num = Math.floor(Math.random() * arr.length);
+}
+        return newArray;
 
-    for (var i = 0; i < arr.length; i++) {
-      return arr[num] }
     }
-  console.log(sample(numbers));
-  console.log(sample(test));
 
+    console.log(shuffle(numbers));
+    console.log(shuffle(test));
+    console.log(numbers);
+//
+// //
+// //   8. sample - Produce a random sample from the list. Pass a number to return n random elements from the list. Otherwise a single random item will be returned.
+//
+// var numbers = [1, 2, 3, 4, 5, 0, 10, 500];
+// var test = [99, 43, 53, 23, 6, 7, 234, 5];
+//
+// function sample(arr, n){
+//   var newArray = [];
+//   if (n === undefined){
+//     n=1;
+//   }
+//   for (var i = 0; i < n; i++) {
+//     var num = Math.floor(Math.random() * arr.length);
+//     newArray.push(arr.splice(num,1)[0]);
+// }
+//       return newArray;
+//     }
+//   console.log(sample(numbers, 5));
+//   console.log(sample(test, 3));
+//   console.log(sample(numbers));
+//
 
 //
 //
 // // 9. difference - returns the values from array that are not present in the other array.
 //
 //   // still not working-
+
   // function difference(arr1, arr2){
   //
   //     for (var i = 0; i < arr1.length; i++) {
+  //
   //
   //       for (var i = 0; i < arr2.length; i++) {
   //
@@ -147,7 +156,7 @@ function sample(arr, n){
   //       }
   //   }
   // }
-  // };
+  // }
   //
   //   var numbers = [0, 1, 23, 3, 4, 5, 6, 10, 500]
   //   var test = [99, 43, 10, 23, 6, 7, 234, 5]
