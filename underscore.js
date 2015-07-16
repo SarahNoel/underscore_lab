@@ -94,27 +94,55 @@
 // // 7. shuffle - Returns a shuffled copy of the list, using a version of the Fisher-Yates shuffle.  Don't worry about implementing that exact shuffle alogrithm.  Start by creating your own simple shuffle.
 //
 
-  var numbers = [1, 2, 3, 4, 5, 0, 10, 500];
-  var test = [99, 43, 53, 23, 6, 7, 234, 5];
-
-  function shuffle(arr){
-  // create new array
-      var newArray = [];
-      var workA = arr.slice(0);
-      arrLength = workA.length;
-          for (var i = 0; i < arrLength; i++) {
-            var num = Math.floor(Math.random() * workA.length);
-            newArray.push(workA.splice(num,1)[0]);
-
-}
-        return newArray;
-
-    }
-
-    console.log(shuffle(numbers));
-    console.log(shuffle(test));
-    console.log(numbers);
+//   var numbers = [1, 2, 3, 4, 5, 0, 10, 500];
+//   var test = [99, 43, 53, 23, 6, 7, 234, 5];
 //
+//   function shuffle(arr){
+//   // create new array
+//       var newArray = [];
+//       var workA = arr.slice(0);
+//       arrLength = workA.length;
+//           for (var i = 0; i < arrLength; i++) {
+//             var num = Math.floor(Math.random() * workA.length);
+//             newArray.push(workA.splice(num,1)[0]);
+//
+// }
+//         return newArray;
+//
+//     }
+//
+//     console.log(shuffle(numbers));
+//     console.log(shuffle(test));
+//     console.log(numbers);
+// //
+
+
+
+  // Moving slots
+var numbers = [1, 2, 3, 4, 5, 0, 10, 500];
+var test = [99, 43, 53, 23, 6, 7, 234, 5];
+
+var shuffle = function(arr){
+
+for (var i = 0; i < arr.length; i++) {
+          // choose random index position
+          var index1 = [Math.floor(Math.random() * arr.length)];
+           // choose random index position
+           var index2 = [Math.floor(Math.random() * arr.length)];
+           // temporary spot for first index positiom
+           var temp = arr[index1];
+            // move second number into that slot
+            arr[index1] = arr[index2];
+           // move the other into temp
+           arr[index2] = temp;
+            // shuffled array
+      return arr;
+    }
+  };
+
+console.log(shuffle(numbers));
+console.log(shuffle(test));
+
 // //
 // //   8. sample - Produce a random sample from the list. Pass a number to return n random elements from the list. Otherwise a single random item will be returned.
 //
